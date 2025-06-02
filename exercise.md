@@ -12,8 +12,14 @@
 digraph {
     rankdir = "LR";
     node [shape=box];
-
-    "     コンピュータリテラシー    " -> "   プログラミングI  ";
+     "　情報工学概論　" -> "   プログラミング基礎Ⅰ   "
+     "     コンピュータリテラシー    " -> "   プログラミング基礎Ⅰ   "
+    "　情報工学概論　" -> "計算機工学" -> "論理回路";
+     "　　基礎ゼミ　　" -> "   プログラミング基礎Ⅰ   " -> "プログラミング基礎Ⅱ";
+      
+    "     コンピュータリテラシー    " -> "   プログラミングI  " -> "   プログラミングⅡ   ";
+     
+   
 }
 ```
 
@@ -27,6 +33,25 @@ digraph {
 @startwbs ex02
 * 拓殖大学
 ** 商学部
+*** 経営学科
+*** 国際ビジネス学科
+*** 会計学科
+** 就職学科
+*** 法律政治学科
+*** 経済学科
+*** 社会安全学科
+** 外国語学科
+*** 英米語学科
+*** 中国語学科
+*** スペイン語学科
+*** 国際日本語学科
+** 工学部
+*** 機会システム学科
+*** 電子システム学科
+*** 情報学科
+*** デザイン学科
+** 国際学部
+*** 国際学科
 @endwbs
 ```
 
@@ -40,10 +65,25 @@ digraph {
 @startuml ex03
 left to right direction
 actor 学生 as student
+actor 教員 as teacher
 rectangle {
+    usecase "課題結果の採点" as points
     usecase "課題の受領" as uc2
+    usecase "リポジトリのクローン" as rpjt
+    usecase "課題ファイスの修正" as kdf
+    usecase "修正をステージに上げる" as stage
+    usecase "修正のコミット" as komit
+    usecase "リモートリポジトリにpush" as push
+    usecase "課題の登録" as touroku
 }
 student --> uc2
+student --> rpjt
+student --> kdf
+student --> stage
+student --> komit
+student --> push
+points <-- teacher
+touroku <-- teacher
 @enduml
 ```
 
@@ -56,9 +96,49 @@ student --> uc2
 ```
 ```
 
+```plantUML
+@startwbs ex04
+* Anime genre
+** Comedy
+*** Saiki Kusuo
+*** Gintama
+*** Crayon Shin-chan
+*** Jojo
+*** mashle
+** Action
+*** Jujutsu Kaisen
+*** One piece
+*** Naruto
+*** Attack on titan
+*** tokyo Revengers
+*** Sword at online
+*** Demon slayer
+** Romance
+*** Kaguya, love is war
+*** Your name
+*** Horimiya
+*** Darling in the Franxx
+*** My dress-up darling
+** Slice of life
+*** I want to eat your pancreas
+*** Silent voice
+*** Wolf Children
+*** clannad
+*** Grave of the firefly
+** Horror
+*** Akamega KIll
+*** Mieruko-chan
+*** Another
+*** Death note
+*** The promised neverland
+
+@endwbs
+```
 
 ## チェック
-- [ ] 課題 3.1 有向グラフ
-- [ ] 課題 3.2 WBS
-- [ ] 課題 3.3 ユースケース図
-- [ ] 課題 3.4 オリジナルの図解
+- [x] 課題 3.1 有向グラフ
+- [x] 課題 3.2 WBS
+- [x] 課題 3.3 ユースケース図
+- [x] 課題 3.4 オリジナルの図解
+
+
